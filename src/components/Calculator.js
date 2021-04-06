@@ -34,8 +34,8 @@ const Calculator = () => {
         }
         const lastInput = display[display.length-1]
         let newDisplay = [...display]
-        if (lastInput === "0") {
-            newDisplay[newDisplay.length-1] = value           
+        if (lastInput === "0" || lastInput === "-0") {
+            newDisplay[newDisplay.length-1] = lastInput === "-0" ? `-${value}` : value           
         } else {
             if (isLastInputANegative) {
                 console.log("isLastInputANegative", newDisplay)
@@ -83,8 +83,9 @@ const Calculator = () => {
                 //need to handle replacing operators
                 if (isLastInputANegative) {
                     // just remove the last minus operator
-                    newDisplay.pop()
-                    setDisplay(()=> newDisplay) 
+                    // console.log("do I come here")
+                    // newDisplay.pop()
+                    // setDisplay(()=> newDisplay) 
                 } else {
                     if ( (lastInput === "+" || lastInput === "-") ||
                         (value === "+" && (lastInput === "/" || lastInput === "*"))
@@ -115,9 +116,9 @@ const Calculator = () => {
         }
         console.log("Evaluating", display.join(" "))
         const toEvaluate = display.join(" ")
-        const result = evalInfixExpression(toEvaluate);
-        if (result === "Infinity") {
-            clearDisplay()
+        const result = evalInfixExpression(toEvaluate).toString();
+        if (result.includes("Infinity")) {
+            setDisplay(() => [])
             resetState()
         } else {
             setIsLastInputAnEval(true)
