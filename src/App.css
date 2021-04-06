@@ -9,13 +9,29 @@
   background-color: #e0e1e6;
   color: #888;
   outline: 1px solid #888;
+  border: none;
+  
 }
+
+.button:disabled {
+  background-color: #a6a6a9;
+}
+
+.button:hover:enabled {
+  background-color: #3e52b1;
+  color: #fe9241;
+}
+
+.button:active:enabled {
+  background-color: #b918a4;
+}
+
 .operator {
   background-color: #fe9241;
   color: #fff;
 }
 
-.input {
+.output {
   display: flex;
   height: 4em;
   flex: 1;
@@ -29,7 +45,7 @@
   align-items: center;
 }
 
-.calc-wrapper {
+.calculator {
   width: 400px;
   height: 600px;
 }

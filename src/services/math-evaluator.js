@@ -11,7 +11,7 @@ const getPrecedence = (char) => {
       return -1;
 }
 
-const evalInfixExpression = (expression) => {
+export const evalInfixExpression = (expression) => {
     return evalPostfix(infix2postfix(expression));
 }
 
@@ -108,4 +108,6 @@ class Stack {
 
 // console.log("evalpostfix", evalPostfix("2 -3 4 * + 8 -"))
 
-module.exports = { evalInfixExpression }
+// console.log("evalpostfix", evalInfixExpression("3 / 0"))
+
+// module.exports = { evalInfixExpression }

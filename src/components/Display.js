@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Display = () => {
+const Display = (props) => {
     return (
         <div className="row">
-            <div className="input">
-                {"okkk"}
+            <div className="output">
+                {props.displayOutput.join("")}
             </div>
         </div>
     );

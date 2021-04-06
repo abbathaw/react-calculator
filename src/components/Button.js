@@ -2,13 +2,16 @@ import React from 'react';
 
 const Button = (props) => {
     return (
-        <div 
+        <button 
         className={`button`}
-        // onClick={() => this.props.handleClick(this.props.children)}
+        onClick={() => props.handleClick(props.children)}
       >
         {props.children}
-      </div>
+      </button>
     );
 };
+
+// TODO
+// add button interatcion, state, display logic (use last digit entered)
 
 export default Button;
